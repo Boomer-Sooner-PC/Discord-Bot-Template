@@ -15,7 +15,11 @@ This is a bot with a simple command handler
 - Save the `config.json` file
 
 The file should look something like this:
-`{ "bot token": "ODE3OD30MTT2NTIxMzgwBDY1.YEO-yw.uhvXIUkJWwSm_d4vbGvh4r8lTG8", "prefix": "?", "mainIP": "mc.hypixel.net" }`
+{
+"bot token": "ODE3OD30MTT2NTIxMzgwBDY1.YEO-yw.uhvXIUkJWwSm_d4vbGvh4r8lTG8",
+"prefix": "?",
+"mainIP": "mc.hypixel.net"
+}
 
 # Activation
 
