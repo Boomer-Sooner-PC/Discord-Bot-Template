@@ -5,9 +5,5 @@
   "main": "index.js",
   "author": "Boomer_Sooner",
   "license": "ISC",
-  "dependencies": {
-    "base64-to-image": "^1.0.2",
-    "discord.js": "^12.5.1",
-    "minecraft-server-util": "^3.4.3"
-  }
+  "dependencies": {}
 }
