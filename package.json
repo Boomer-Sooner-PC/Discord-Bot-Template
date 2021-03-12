@@ -1,0 +1,17 @@
+{
+  "name": "mc-server-status-discord-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that get the status of a minecraft server.",
+  "main": "index.js",
+  "author": "Boomer_Sooner",
+  "license": "ISC",
+  "dependencies": {
+    "base64-to-image": "^1.0.2",
+    "discord.js": "^12.5.1",
+    "fast-average-color": "^6.3.0",
+    "get-average-color": "0.0.6",
+    "image-average-color": "^1.0.0",
+    "image-to-average-color": "^1.0.2",
+    "minecraft-server-util": "^3.4.3"
+  }
+}
