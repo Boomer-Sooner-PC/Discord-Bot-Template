@@ -2,7 +2,6 @@ const fs = require('fs');
 const util = require('minecraft-server-util');
 const discord = require('discord.js');
 const imgConvert = require('base64-to-image')
-const { execute } = require('./enderIP');
 const path = require('path');
 
 module.exports = {
@@ -71,7 +70,7 @@ module.exports = {
                 var optionalObj = {'fileName': 'serverFavicon', 'type':'png'};
                 imgConvert(favicon64, path1, optionalObj); //aves the favicon responce as an image
 
-                attachment = new discord.MessageAttachment('./commandsserverFavicon.png', 'favicon.png');
+                attachment = new discord.MessageAttachment('./supplementaryFiles/commandsserverFavicon.png', 'favicon.png');
                 embed.setThumbnail('attachment://favicon.png');
 
             }
