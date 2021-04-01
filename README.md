@@ -19,5 +19,5 @@ This is a bot with a simple command handler
 
 - Install [Node.js](https://nodejs.org/en/download/)
 - Open up a Terminal/Command Prompt and cd into the folder downloaded
-- Download the dependencied by running `npm install minecraft-server-util discord.js base64-to-image`
+- Download the dependencied by running `npm i`
 - Start the bot by the command `node .`
