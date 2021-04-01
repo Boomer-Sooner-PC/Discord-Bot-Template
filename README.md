@@ -1,4 +1,4 @@
-# Minecraft Server Status Bot
+# Discord Bot
 
 This is a bot with a simple command handler
 
