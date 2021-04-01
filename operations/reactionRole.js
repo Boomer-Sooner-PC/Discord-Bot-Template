@@ -19,6 +19,5 @@ module.exports = {
         else {
             member.roles.remove(role);
         }
-
     }
 };
