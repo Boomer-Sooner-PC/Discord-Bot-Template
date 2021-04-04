@@ -6,10 +6,14 @@ module.exports = {
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}addrr`,
     async execute (message, client) {
 
+        if (!message.member.hasPermission(client.perm)) {
+            message.channel.send("Insufficent Permissions");
+            return;
+        }
         
         let filter = (m) => m.author.id === message.author.id;
 
-       async function getMsgID () {
+        async function getMsgID () {
            message.channel.send('What is the message ID or message link?');
            let linkMsg = await message.channel.awaitMessages(filter, {max: 1, time: 300000, errors: ['time']}); 
            
@@ -107,8 +111,6 @@ module.exports = {
             return roleID;
         }
         
-        
-
         msgID = await getMsgID();
         emoji = await getEmoji();
         roleID = await getRoleID();

@@ -6,7 +6,10 @@ const fs = require('fs');
 const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 const prefix = config['prefix'];
 const token = config['bot token'];
-
+const perm = config['perm'];
+client.xp = {};
+client.perm = perm;
+client.prefix = prefix;
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // makes sure that files inside of the ./commands folder are ending with '.js'
 
 for(const file of commandFiles) {   //sets up the command files
@@ -27,6 +30,15 @@ for(const file of operationsFiles) {
 client.on('ready', () => {
     console.log(`${client.user.username} is ready!`);
     client.user.setActivity(`${prefix}help for a list of commands`)
+
+    client.guilds.cache.forEach(guild => {
+        client.xp[guild.id] = []; // sets up the XP system
+    });
+
+    setInterval(function () {
+        client.operations.get('xp').execute(client);
+    }, 1000)
+
 })
 
 client.on('raw', event => {
@@ -40,6 +52,11 @@ client.on('raw', event => {
 })
 
 client.on('message', (message) => {
+    const excludeXP = JSON.parse(fs.readFileSync('supplementaryFiles/XPCooldown.json', 'utf-8'))
+    if (!client.xp[message.guild.id].includes(message.member.id) && !excludeXP['channels'].includes(message.channel.id) && !excludeXP['members'].includes(message.member.id)) {
+        client.xp[message.guild.id].push(message.author.id); // adds the user id to an the XP object
+    };
+
     if (!message.content.toLowerCase().startsWith(prefix)) return;
     command = message.content.toLowerCase().split(/ /)[0].replace(prefix, '');
     if (!client.commands.get(command)) return;

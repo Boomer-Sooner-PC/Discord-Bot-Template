@@ -13,6 +13,7 @@ This is a bot with a simple command handler
 - Then choose your main server that can be easily accessed using '{prefix}status'
 - Copy the Client ID from the application page then past it into the field on [this site](https://discordapi.com/permissions.html) and get your bot invite link
 - Invite your bot using the link
+- There are other things you can edit in `config.json` if you want.
 - Save the `config.json` file
 
 # Activation
