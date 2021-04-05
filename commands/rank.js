@@ -57,7 +57,7 @@ module.exports = {
                 .addField("**Rank:**", rank, true)
                 .addField("**Level:**", level, true)
                 .addField("**XP:**", xp, true)
-                .setColor('RANDOM')
+                .setColor(client.color)
                 .setThumbnail(pfp)
         }
          

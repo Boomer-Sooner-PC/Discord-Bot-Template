@@ -7,7 +7,7 @@ module.exports = {
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}help`,
     async execute (message, client) {
         let embed = new discord.MessageEmbed()
-            .setColor('RANDOM')
+            .setColor(client.color)
             .setTitle("**Commands:**")
     
         client.commands.forEach(element => { //loops over all commands

@@ -11,7 +11,7 @@ module.exports = {
         };
 
         const channelID = message.content.replace(`${client.prefix}noxp `, '').replace('<#', '').replace('>', '');
-        let json = JSON.parse(fs.readFileSync('./supplementaryFiles/XPCooldown.json', 'utf-8'))
+        let json = JSON.parse(fs.readFileSync('./supplementaryFiles/XPCooldown.json', 'utf-8'));
 
         if (isNaN(parseInt(channelID))) {
             message.channel.send("Please correctly mention a channel or channel ID");

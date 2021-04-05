@@ -8,8 +8,10 @@ const prefix = config['prefix'];
 const token = config['bot token'];
 const perm = config['perm'];
 client.xp = {};
+client.stopwatch = {};
 client.perm = perm;
 client.prefix = prefix;
+client.color = config['embed color'];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // makes sure that files inside of the ./commands folder are ending with '.js'
 
 for(const file of commandFiles) {   //sets up the command files
@@ -39,6 +41,13 @@ client.on('ready', () => {
         client.operations.get('xp').execute(client);
     }, 1000)
 
+})
+
+client.on('messageDelete', msg => {
+    client.operations.get('logs').execute(msg, client, true);
+})
+client.on('messageUpdate', msg => {
+    client.operations.get('logs').execute(msg, client, false);
 })
 
 client.on('raw', event => {

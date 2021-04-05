@@ -87,7 +87,7 @@ module.exports = {
             }   
             embed.addField("Description:", responce.description, false);           
             embed.setFooter(`${responce.host} || ${responce.port}`);
-            embed.setColor('RANDOM')
+            embed.setColor(client.color)
             return [embed, attachment];
             
         };

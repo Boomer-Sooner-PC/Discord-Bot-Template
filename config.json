@@ -1,6 +1,8 @@
 {
-    "bot token": "ODE3ODE0MTYvZGv54r8lTG8",
+    "bot token": "ODE3d4vZGv54r8lTG8",
     "prefix": "?",
     "mainIP": "mc.hypixel.net",
-    "perm": "ADMINISTRATOR"
+    "perm": "ADMINISTRATOR",
+    "embed color": "#da8fff",
+    "leaderboard list ammount": 15 
 }
