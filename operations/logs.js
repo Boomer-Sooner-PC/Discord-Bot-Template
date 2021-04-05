@@ -8,6 +8,9 @@ module.exports = {
 
         const { guild } = message
         const id = JSON.parse(fs.readFileSync('./supplementaryFiles/logChannels.json', 'utf-8'))[guild.id];
+
+        if (!id) return;
+
         const channel = client.guilds.cache.get(guild.id).channels.cache.get(id);
 
         if (deleted) {

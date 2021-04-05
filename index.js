@@ -12,6 +12,7 @@ client.stopwatch = {};
 client.perm = perm;
 client.prefix = prefix;
 client.color = config['embed color'];
+
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // makes sure that files inside of the ./commands folder are ending with '.js'
 
 for(const file of commandFiles) {   //sets up the command files
@@ -62,9 +63,12 @@ client.on('raw', event => {
 
 client.on('message', (message) => {
     const excludeXP = JSON.parse(fs.readFileSync('supplementaryFiles/XPCooldown.json', 'utf-8'))
-    if (!client.xp[message.guild.id].includes(message.member.id) && !excludeXP['channels'].includes(message.channel.id) && !excludeXP['members'].includes(message.member.id)) {
-        client.xp[message.guild.id].push(message.author.id); // adds the user id to an the XP object
-    };
+    try {
+        if (!client.xp[message.guild.id].includes(message.member.id) && !excludeXP['channels'].includes(message.channel.id) && !excludeXP['members'].includes(message.member.id)) {
+            client.xp[message.guild.id].push(message.author.id); // adds the user id to an the XP object
+        };
+    }
+    catch {}
 
     if (!message.content.toLowerCase().startsWith(prefix)) return;
     command = message.content.toLowerCase().split(/ /)[0].replace(prefix, '');
