@@ -11,6 +11,7 @@ client.xp = {};
 client.stopwatch = {};
 client.perm = perm;
 client.prefix = prefix;
+client.leave = {};
 client.color = config['embed color'];
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // makes sure that files inside of the ./commands folder are ending with '.js'
@@ -38,8 +39,20 @@ client.on('ready', () => {
         client.xp[guild.id] = []; // sets up the XP system
     });
 
-    setInterval(function () {
+    setInterval(function addXP () {
         client.operations.get('xp').execute(client);
+    }, 1000)
+    setInterval(function checkIfLeave () {
+        let date = new Date();
+        date = date.valueOf()
+        
+        for (guildID in client.leave) {
+            let obj = client.leave[guildID];
+            if (obj.time <= date) {
+                let connection = obj.connection;
+                connection.disconnect();
+            }
+        }
     }, 1000)
 
 })

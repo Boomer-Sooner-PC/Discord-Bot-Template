@@ -16,6 +16,5 @@ module.exports = {
             message.channel.send(`**Stopped** stopwatch\nTime: **_${time / 1000}s_**`);
             delete client.stopwatch[message.author.id];
         }
-
     }
 } 
