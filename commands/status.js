@@ -65,11 +65,12 @@ module.exports = {
             else {
                 favicon64 = responce.favicon;
 
-                var path1 = __dirname + '/supplementaryFiles/commandsserverFavicon.png';
+                var path1 = './supplementaryFiles/';
                 var optionalObj = {'fileName': 'serverFavicon', 'type':'png'};
                 imgConvert(favicon64, path1, optionalObj); //aves the favicon responce as an image
 
-                attachment = new discord.MessageAttachment('./supplementaryFiles/commandsserverFavicon.png', 'favicon.png');
+                attachment = new discord.MessageAttachment('./supplementaryFiles/serverFavicon.png', 'favicon.png');
+                embed.attachFiles(attachment);
                 embed.setThumbnail('attachment://favicon.png');
 
             }
