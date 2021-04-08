@@ -2,7 +2,6 @@ const fs = require('fs');
 const util = require('minecraft-server-util');
 const discord = require('discord.js');
 const imgConvert = require('base64-to-image')
-const path = require('path');
 
 module.exports = {
     name: "status",
@@ -66,7 +65,7 @@ module.exports = {
             else {
                 favicon64 = responce.favicon;
 
-                var path1 = __dirname
+                var path1 = __dirname + '/supplementaryFiles/commandsserverFavicon.png';
                 var optionalObj = {'fileName': 'serverFavicon', 'type':'png'};
                 imgConvert(favicon64, path1, optionalObj); //aves the favicon responce as an image
 

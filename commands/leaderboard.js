@@ -23,7 +23,7 @@ module.exports = {
         reversed = reversed.reverse();
         let str = '';
         e = 0
-        const ammount = JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['leaderboard list ammount']
+        const ammount = JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['leaderboard list amount']
         for (let e = 0; e < ammount; e++) {
             if (reversed[e]) {
                 str+=reversed[e];

@@ -1,9 +1,11 @@
 {
-    "bot token": "ODE3ODE0MTY2N]WvSm_d4vZGv54r8lTG8",
+    "bot token": "ODE3OWvSm_d4vZGv54r8lTG8",
     "prefix": "?",
     "mainIP": "mc.hypixel.net",
     "perm": "ADMINISTRATOR",
+    "status": "help for a list of commands",
     "embed color": "RANDOM",
-    "leaderboard list ammount": 15,
-    "time to disconnect": 2
+    "leaderboard list amount": 15,
+    "time to disconnect": 2,
+    "enable welcome message": true
 }

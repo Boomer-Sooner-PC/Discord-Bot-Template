@@ -3,29 +3,29 @@ const discord = require('discord.js');
 
 module.exports = {
     name: "purge",
-    description: "Deletes a large ammount of messages.",
-    usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}purge <ammount>`,
+    description: "Deletes a large amount of messages.",
+    usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}purge <amount>`,
     async execute (message, client) {
 
         if (!message.member.hasPermission(client.perm)) {
-            message.channel.send('Insufficent Permissions');
+            message.channel.send('Insufficient Permissions');
             return;
         };
 
-        const ammount = parseInt(message.content.slice((client.prefix.length + 6)));
+        const amount = parseInt(message.content.slice((client.prefix.length + 6)));
 
-        if (isNaN(ammount)) {
-            message.channel.send('Please specify an ammount!');
+        if (isNaN(amount)) {
+            message.channel.send('Please specify an amount!');
             return;
         };
         
-        if (ammount > 99) {
-            message.channel.send("Max ammount to clear is 99");
+        if (amount > 99) {
+            message.channel.send("Max amount to clear is 99");
             return;
         }
-        message.channel.bulkDelete(ammount + 1, true);
+        message.channel.bulkDelete(amount + 1, true);
 
-        message.channel.send(`**_Successfully_** deleted ${ammount} messages!`)
+        message.channel.send(`**_Successfully_** deleted ${amount} messages!`)
 
     }
 } 

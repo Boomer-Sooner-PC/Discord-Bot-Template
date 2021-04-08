@@ -9,6 +9,7 @@ module.exports = {
         const message = event.d.message_id;
         const guild = event.d.guild_id;
         const roleID = json[guild][message][emoji];
+        if (!roleID) return;
         const memberID = event.d.user_id;
         const role = client.guilds.cache.get(guild).roles.cache.get(roleID);
         const member = await client.guilds.cache.get(guild).members.cache.get(memberID)

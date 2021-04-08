@@ -22,3 +22,7 @@ This is a bot with a simple command handler
 - Open up a Terminal/Command Prompt and cd into the folder downloaded
 - Download the dependencied by running `npm i`
 - Start the bot by the command `node .`
+
+# config.json info
+
+If you have enabled `welcomeMsg` by setting it to `true` you will need to enable pribilaeged intents. Follow the instructions on the accepted answer on [this Stack Overflow post](https://stackoverflow.com/questions/64559390/none-of-my-discord-js-guildmember-events-are-emitting-my-user-caches-are-basica).

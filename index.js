@@ -7,13 +7,14 @@ const config = JSON.parse(fs.readFileSync('config.json', 'utf-8'));
 const prefix = config['prefix'];
 const token = config['bot token'];
 const perm = config['perm'];
+const status = config['status'];
+const welcomeMsg = config['enable welcome message'];
 client.xp = {};
 client.stopwatch = {};
 client.perm = perm;
 client.prefix = prefix;
 client.leave = {};
 client.color = config['embed color'];
-
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // makes sure that files inside of the ./commands folder are ending with '.js'
 
 for(const file of commandFiles) {   //sets up the command files
@@ -33,7 +34,7 @@ for(const file of operationsFiles) {
 
 client.on('ready', () => {
     console.log(`${client.user.username} is ready!`);
-    client.user.setActivity(`${prefix}help for a list of commands`)
+    client.user.setActivity(status)
 
     client.guilds.cache.forEach(guild => {
         client.xp[guild.id] = []; // sets up the XP system
@@ -62,6 +63,10 @@ client.on('messageDelete', msg => {
 })
 client.on('messageUpdate', msg => {
     client.operations.get('logs').execute(msg, client, false);
+})
+
+client.on('guildMemberAdd', member => {
+    if (welcomeMsg) client.operations.get('welcome').execute(member, client);
 })
 
 client.on('raw', event => {
