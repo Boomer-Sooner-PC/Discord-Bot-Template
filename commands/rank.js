@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "rank",
+    catigory: 'fun',
     description: "Displays you or a mentioned user's rank and level.",
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}rank <mention (optional)>`,
     async execute (message, client) {

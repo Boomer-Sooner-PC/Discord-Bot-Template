@@ -3,6 +3,7 @@ const fs = require('fs');
 module.exports = {
     name: "noxp",
     description: "Toggles if a channel gives XP (default is true)",
+    catigory: 'config',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}cooldown <channel ID or mention channel>`,
     async execute (message, client) {
         if (!message.member.hasPermission(client.perm)) {

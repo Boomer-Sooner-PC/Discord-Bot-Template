@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "leaderboard",
+    catigory: 'fun',
     description: "Displays the leaderboard for the server.",
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}leaderboard`,
     async execute (message, client) {

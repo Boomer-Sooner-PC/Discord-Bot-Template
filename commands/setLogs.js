@@ -4,6 +4,7 @@ const discord = require('discord.js');
 module.exports = {
     name: "setlogs",
     description: "Sets the channel to log messages in.",
+    catigory: 'config',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}setlogs`,
     async execute (message, client) {
 

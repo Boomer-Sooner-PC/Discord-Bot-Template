@@ -3,6 +3,7 @@ const discord = require('discord.js');
 
 module.exports = {
     name: "purge",
+    catigory: 'moderation',
     description: "Deletes a large amount of messages.",
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}purge <amount>`,
     async execute (message, client) {

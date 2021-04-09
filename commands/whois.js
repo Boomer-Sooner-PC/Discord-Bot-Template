@@ -5,6 +5,7 @@ const { isNull } = require("util");
 module.exports = {
     name: 'whois',
     description: 'gives information about a users',
+    catigory: 'utility',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}whois <mention user>`,
     execute(message, client){
         const target = message.mentions.members.first();

@@ -6,6 +6,7 @@ const imgConvert = require('base64-to-image')
 module.exports = {
     name: "status",
     description: "gets the status of the main server or other server",
+    catigory: 'fun',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}status\n${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}status mc.hypixel.net`,
     async execute (message, client) {
         const customIP = message.content.length > JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix'].length + 6;

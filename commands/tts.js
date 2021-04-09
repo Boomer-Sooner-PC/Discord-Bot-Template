@@ -5,6 +5,7 @@ const DiscordTTS = require("discord-tts");
 module.exports = {
     name: "tts",
     description: "Sends a message through voice chat.",
+    catigory: 'fun',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}tts <message>`,
     async execute (message, client) {
 

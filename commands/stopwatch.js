@@ -4,6 +4,7 @@ const discord = require('discord.js');
 module.exports = {
     name: "stopwatch",
     description: "Stops and starts a stopwatch. Individual stopwatches for each member.",
+    catigory: 'fun',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}stopwatch`,
     async execute (message, client) {
         

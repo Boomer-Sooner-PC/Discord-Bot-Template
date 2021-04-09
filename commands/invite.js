@@ -3,6 +3,7 @@ const discord = require('discord.js');
 
 module.exports = {
     name: "invite",
+    catigory: 'utility',
     description: "Generates an invite link for the bot",
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}invite`,
     async execute (message, client) {

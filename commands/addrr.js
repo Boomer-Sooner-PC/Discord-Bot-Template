@@ -3,6 +3,7 @@ const fs = require('fs');
 module.exports = {
     name: "addrr",
     description: "Adds a reaction role to a message",
+    catigory: 'config',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}addrr`,
     async execute (message, client) {
 

@@ -55,6 +55,9 @@ client.on('ready', () => {
             }
         }
     }, 1000)
+    setInterval(function serverStats () {
+        client.operations.get('server stats').execute(client);
+    }, 10000);
 
 })
 

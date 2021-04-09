@@ -4,6 +4,7 @@ const discord = require('discord.js');
 module.exports = {
     name: "welcome",
     description: "Sets up all the information for a welcome message.",
+    catigory: 'config',
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}welcome`,
     async execute (message, client) {
 
