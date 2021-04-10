@@ -34,7 +34,7 @@ module.exports = {
             discriminator: target.user.discriminator,
             pfp: user.avatarURL(),
             registered: registeredDate
-        }
+        };
 
         if (isNull(information.nickname)) {
             information.nickname = target.user.username;

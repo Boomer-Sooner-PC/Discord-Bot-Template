@@ -8,6 +8,7 @@ module.exports = {
         const emoji = event.d.emoji.name;
         const message = event.d.message_id;
         const guild = event.d.guild_id;
+        if (!json[guild][message]) return
         const roleID = json[guild][message][emoji];
         if (!roleID) return;
         const memberID = event.d.user_id;

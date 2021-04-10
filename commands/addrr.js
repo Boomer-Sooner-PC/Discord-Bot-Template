@@ -8,7 +8,7 @@ module.exports = {
     async execute (message, client) {
 
         if (!message.member.hasPermission(client.perm)) {
-            message.channel.send("Insufficent Permissions");
+            message.channel.send("Insufficient Permissions");
             return;
         }
         
