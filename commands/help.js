@@ -15,12 +15,14 @@ module.exports = {
         let fun = [];
         let moderation = [];
         let config = [];
+        let music = [];
         
         const index = {
             "⚙️": utility,
             "😀": fun,
             "👨‍⚖️": moderation,
-            "📝": config
+            "📝": config,
+            "🎶": music
         };
 
         client.commands.forEach(element => { //loops over all commands
@@ -28,11 +30,12 @@ module.exports = {
             if (element.catigory === 'fun') fun.push(element);
             if (element.catigory === 'moderation') moderation.push(element);
             if (element.catigory === 'config') config.push(element);
+            if (element.catigory === 'config') config.push(element);
         });
 
         let embed = new Discord.MessageEmbed()
             .setTitle('**Help:**')
-            .setFooter('⚙️ = utility || 😀 = fun || 👨‍⚖️ = moderation || 📝 = config')
+            .setFooter('⚙️ = utility || 😀 = fun || 👨‍⚖️ = moderation || 📝 = config || 🎶 = music')
             .setDescription('Choose which catigory you want')
             .setColor(client.color)
 
@@ -50,6 +53,7 @@ module.exports = {
                 msg.react('😀');
                 msg.react('👨‍⚖️');
                 msg.react('📝');
+                msg.react("🎶")
     
                 let emoji = await msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
                 emoji = emoji.first().emoji.name;
@@ -86,7 +90,7 @@ module.exports = {
             try {
                 let embed = new Discord.MessageEmbed()
                     .setTitle(`**Help (${catigory[0].catigory}):**`)
-                    .setFooter("⚙️ = utility || 😀 = fun || 👨‍⚖️ = moderation || 📝 = config")
+                    .setFooter("⚙️ = utility || 😀 = fun || 👨‍⚖️ = moderation || 📝 = config || 🎶 = music")
                     .setColor(client.color)
                 
                 for (cmd of catigory) {
@@ -102,6 +106,7 @@ module.exports = {
                 edMSG.react('😀');
                 edMSG.react('👨‍⚖️');
                 edMSG.react('📝');
+                edMSG.react("🎶")
 
                 editEmbed(embed);
             }

@@ -83,6 +83,7 @@ client.on('raw', event => {
 })
 
 client.on('message', (message) => {
+    client.operations.get('stats').execute(message, client);
     const excludeXP = JSON.parse(fs.readFileSync('supplementaryFiles/XPCooldown.json', 'utf-8'))
     try {
         if (!client.xp[message.guild.id].includes(message.member.id) && !excludeXP['channels'].includes(message.channel.id) && !excludeXP['members'].includes(message.member.id)) {

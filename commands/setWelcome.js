@@ -8,7 +8,7 @@ module.exports = {
     usage: `${JSON.parse(fs.readFileSync('./config.json', 'utf-8'))['prefix']}welcome`,
     async execute (message, client) {
 
-        if (!message.member.hasPermission(client.perm)) {
+        if (!message.member.hasPermission(client.perm) || !client.welcomeMsg) {
             message.channel.send('Insufficient Permissions');
             return;
         };
