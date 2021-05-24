@@ -5,7 +5,14 @@ module.exports = {
     name: "logs",
     description: "Logs a deleted and edited message.",
     async execute (message, client, deleted) {
-
+        if (message.author.bot) return;
+        if (client.excused.includes(message.author.id)) {
+            const index = client.excused.indexOf(message.author.id);
+            if (index > -1) {
+                client.excused.splice(index, 1);
+            };
+            return;
+        }
         const { guild } = message
         const id = JSON.parse(fs.readFileSync('./supplementaryFiles/logChannels.json', 'utf-8'))[guild.id];
 

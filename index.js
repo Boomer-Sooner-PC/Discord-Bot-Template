@@ -14,6 +14,7 @@ client.stopwatch = {};
 client.perm = perm;
 client.prefix = prefix;
 client.leave = {};
+client.excused = [];
 client.color = config['embed color'];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // makes sure that files inside of the ./commands folder are ending with '.js'
 
@@ -84,6 +85,7 @@ client.on('raw', event => {
 
 client.on('message', (message) => {
     client.operations.get('stats').execute(message, client);
+    client.operations.get('replies').execute(message, client);
     const excludeXP = JSON.parse(fs.readFileSync('supplementaryFiles/XPCooldown.json', 'utf-8'))
     try {
         if (!client.xp[message.guild.id].includes(message.member.id) && !excludeXP['channels'].includes(message.channel.id) && !excludeXP['members'].includes(message.member.id)) {
@@ -91,12 +93,15 @@ client.on('message', (message) => {
         };
     }
     catch {}
-
-    if (!message.content.toLowerCase().startsWith(prefix)) return;
-    command = message.content.toLowerCase().split(/ /)[0].replace(prefix, '');
+    content = message.content;
+    if (content.includes('»')) content = content.split('» ')[1];
+    if (!content.toLowerCase().startsWith(prefix)) return;
+    command = content.toLowerCase().split(/ /)[0].replace(prefix, '');
     if (!client.commands.get(command)) return;
     client.commands.get(command).execute(message, client);
 
 })
+
+process.on('unhandledRejection', (reason, p) => {});
 
 client.login(token);

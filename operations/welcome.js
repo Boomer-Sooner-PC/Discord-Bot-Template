@@ -9,7 +9,7 @@ module.exports = {
         const json = JSON.parse(fs.readFileSync('./supplementaryFiles/welcome.json', 'utf-8'));
         if (!json[member.guild.id]) return;
         const info = json[member.guild.id];
-        const icon = await member.guild.toJSON().iconURL;
+        const icon = await member.avatarURL;
         const color = await client.color;
         let embed = new Discord.MessageEmbed()
             .setTitle(`**Welcome ${member.user.username} to the ${member.guild.name}!**`)

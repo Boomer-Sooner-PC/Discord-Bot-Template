@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { isNull } = require('util');
 
 module.exports = {
     name: "xp",

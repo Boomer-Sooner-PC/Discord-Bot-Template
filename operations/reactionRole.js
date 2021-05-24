@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { join } = require('path');
 
 module.exports = {
     name: "reaction role",
@@ -8,6 +9,7 @@ module.exports = {
         const emoji = event.d.emoji.name;
         const message = event.d.message_id;
         const guild = event.d.guild_id;
+        if (!json[guild]) return
         if (!json[guild][message]) return
         const roleID = json[guild][message][emoji];
         if (!roleID) return;
